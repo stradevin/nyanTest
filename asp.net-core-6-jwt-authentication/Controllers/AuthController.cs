@@ -6,17 +6,18 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Net;
 using System.Security.Claims;
 using System.Security.Cryptography;
-using asp.net_core_6_jwt_authentication.Models;
+using asp.net_core_6_jwt_authentication.Data.Models;
+using asp.net_core_6_jwt_authentication.Data.DTO;
 
 namespace asp.net_core_6_jwt_authentication.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class LoginController : ControllerBase
+    public class AuthController : ControllerBase
     {
         private readonly IConfiguration _configuration;
 
-        public LoginController(IConfiguration configuration)
+        public AuthController(IConfiguration configuration)
         {
             _configuration = configuration;
         }
@@ -80,5 +81,13 @@ namespace asp.net_core_6_jwt_authentication.Controllers
 
             return jwt;
         }
+
+        [HttpPost("user")]
+        public ActionResult CreateUser([FromBody] UserJson user)
+        {
+            return Ok();
+        }
+
+
     }
 }

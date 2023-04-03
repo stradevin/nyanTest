@@ -1,11 +1,11 @@
-﻿namespace asp.net_core_6_jwt_authentication.Models
+﻿namespace asp.net_core_6_jwt_authentication.Data.Models
 {
     public class LoginRequest
     {
         public LoginRequest()
         {
-            this.UserName = String.Empty;
-            this.Password = String.Empty;
+            UserName = string.Empty;
+            Password = string.Empty;
         }
 
         public string UserName { get; set; }
